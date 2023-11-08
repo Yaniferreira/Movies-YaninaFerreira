@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="../Recursos Moviestack/Moviestack_favicon.png" type="image/x-icon">
+    <title>Movies</title>
+</head>
+<body class="bg-orange-100">
+    <header class="flex flex-row justify-between px-4">
+        <div class=" flex flex-row w-35 h-20 object-contain">
+            <img class="rounded" src="../Recursos Moviestack/Moviestack_isotipo.png" alt="isotipo">
+            <img src="../Recursos Moviestack/Moviestack_logotipo1.png" alt="logotipo">
+        </div>
+        <nav class="flex font-bold gap-10 items-center text-lg">
+            <a href="../../index.html">Home</a>
+            <a href="./movies.html">Movies</a>
+            <a href="#">Favs</a>
+        </nav>
+    </header>
+    <main>
+        <h1 class="font-bold text-center text-5xl bg-orange-200 p-2" >MOVIES</h1>
+        <div id="contenedorCard"></div>
+    </main>
+    <footer class="flex justify-center font-semibold p-2">
+        <h2>MINDHUB - Cohort52 - Yanina Ferreira</h2>
+    </footer>
+    <script type="module" src="./tailwind.config.js"></script>
+    <script src="./data.js"></script>
+    <script src="./movies.js"></script>
+    <script src="./home.js"></script>
+</body>
+</html>
