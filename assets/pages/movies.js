@@ -7,21 +7,21 @@
 </article>*/
 const contenedor= document.getElementById ("contenedor")
 console.log(movies.data);
-contenedor.innerHTML+= createTemplate(movies.data)
+contenedor.innerHTML+= createTemplate(movies)
 function createTemplate(listMovie) {
    let template= ""
-   for (const movie of movies) {
-    template += crearCard(movies)
+   for (const movie of listMovie) {
+    template += crearCard(movie)
    } 
    console.log(template)
    return template
 }
-function crearCard(movies) {
+function crearCard (movie) {
     return `<article class=" w-[350px] flex flex-col gap-3 bg-gray-600 rounded px-4 pb-2 pt-5">
-    <img class="rounded-md" src="${movies.image}" alt="image">
-    <h2 class="text-center font-bold">${movies.title} </h2>
-    <h3 class="text-center font-semibold">${movies.tagline}</h3>
-    <p>${movies.overview}</p>
+    <img class="rounded-md" src="${movie.image}" alt="image">
+    <h2 class="text-center font-bold">${movie.title} </h2>
+    <h3 class="text-center font-semibold">${movie.tagline}</h3>
+    <p>${movie.overview}</p>
     </article>`
     
 }
