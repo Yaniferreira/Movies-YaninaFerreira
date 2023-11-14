@@ -25,8 +25,6 @@ function crearCard (movie) {
     <a class=" border bg-slate-800 font-semibold text-white p-3 w-2/3 text-center" href="./detalles.html?id=${movie.id}">see more information</a>
     </article>`
 }
-
-console.log(movies[0].genres);
 /*<label> terror
                     <input type="checkbox" name="" id="" checked>
                 </label>
@@ -35,3 +33,8 @@ console.log(movies[0].genres);
                 </label>*/
 const inputBusqueda= document.getElementById("inputBusqueda")
 const checkboxContenedor= document.getElementById("checkbox")
+let generos = movies.map(movie => (movie.genres)).flat()
+let listaDeGeneros = new Set(generos)
+console.log(generos);
+const pelisrepetidas= new Set(generos)
+console.log(pelisrepetidas);
