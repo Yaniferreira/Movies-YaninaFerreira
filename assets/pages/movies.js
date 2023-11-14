@@ -44,6 +44,6 @@ function crearOpciones(generos,contenedor) {
 contenedor.innerHTML= opciones
 }}
 function crearGeneros(genero) {
-    return`<option value="${genero.value}">${genero.value}</option>`
+    return`<option value="${genero}">${genero}</option>`
 }
 crearOpciones(listaDeGeneros,checkboxContenedor)
