@@ -17,11 +17,21 @@ function createTemplate(listMovie) {
    return template
 }
 function crearCard (movie) {
-    return `<article class=" w-[350px] flex flex-col gap-3 bg-gray-600 rounded px-4 pb-2 pt-5">
+    return `<article class=" flex-wrap w-[350px] flex flex-col justify-center items-center gap-3 bg-gray-600 rounded px-4 pb-2 pt-5">
     <img class="rounded-md" src="${movie.image}" alt="image">
     <h2 class="text-center font-bold">${movie.title} </h2>
     <h3 class="text-center font-semibold">${movie.tagline}</h3>
     <p>${movie.overview}</p>
+    <a class=" border bg-slate-800 font-semibold text-white p-3 w-2/3 text-center" href="./detalles.html?id=${movie.id}">see more information</a>
     </article>`
-    
 }
+
+console.log(movies[0].genres);
+/*<label> terror
+                    <input type="checkbox" name="" id="" checked>
+                </label>
+                <label > drama
+                    <input type="checkbox">
+                </label>*/
+const inputBusqueda= document.getElementById("inputBusqueda")
+const checkboxContenedor= document.getElementById("checkbox")
