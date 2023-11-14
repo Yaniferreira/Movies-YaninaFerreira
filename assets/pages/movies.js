@@ -32,9 +32,18 @@ function crearCard (movie) {
                     <input type="checkbox">
                 </label>*/
 const inputBusqueda= document.getElementById("inputBusqueda")
-const checkboxContenedor= document.getElementById("checkbox")
+const checkboxContenedor= document.getElementById("checkboxes")
 let generos = movies.map(movie => (movie.genres)).flat()
 let listaDeGeneros = new Set(generos)
-console.log(generos);
-const pelisrepetidas= new Set(generos)
-console.log(pelisrepetidas);
+console.log(generos)
+console.log(listaDeGeneros);
+function crearOpciones(generos,contenedor) {
+    let opciones =""
+    for (const genero of generos) {
+    opciones += crearGeneros (genero)
+contenedor.innerHTML= opciones
+}}
+function crearGeneros(genero) {
+    return`<option value="${genero.value}">${genero.value}</option>`
+}
+crearOpciones(listaDeGeneros,checkboxContenedor)
