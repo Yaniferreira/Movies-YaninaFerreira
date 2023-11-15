@@ -60,7 +60,14 @@ function cardFiltrada(lista, donde,fn) {
         donde.innerHTML=template=`<h2 class=" text-5xl font-semibold">there are no matches...</h2>`
     }
 }
-checkboxContenedor.addEventListener("input",(e) =>{
-const options= [...document.querySelectorAll(`input[type="checkbox"]:checked`)]
-const values= checkboxes.map(check=>check.value)
-})
+checkboxes.addEventListener('change', () => {
+    const filtradoporgenero = filtrarporgenero(movies,checkboxes.value)
+    const filtradoPorTitulo=filtrarPorTitulo( filtradoporgenero ,inputBusqueda.value)
+    cardFiltrada(filtradoPorTitulo, contenedor, crearCard)
+   
+   })
+   
+   function filtrarporgenero(movies, genero) {
+     const filtro = movies.filter(movie => movie.genres.indexOf(genero)!=-1)
+     return filtro
+   }
