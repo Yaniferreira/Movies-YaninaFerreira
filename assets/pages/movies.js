@@ -13,7 +13,6 @@ function createTemplate(listMovie) {
    for (const movie of listMovie) {
     template += crearCard(movie)
    } 
-   console.log(template)
    return template
 }
 function crearCard (movie) {
@@ -25,12 +24,6 @@ function crearCard (movie) {
     <a class=" border bg-slate-800 font-semibold text-white p-3 w-2/3 text-center" href="./detalles.html?id=${movie.id}">see more information</a>
     </article>`
 }
-/*<label> terror
-                    <input type="checkbox" name="" id="" checked>
-                </label>
-                <label > drama
-                    <input type="checkbox">
-                </label>*/
 const inputBusqueda= document.getElementById("inputBusqueda")
 const checkboxContenedor= document.getElementById("checkboxes")
 let generos = movies.map(movie => (movie.genres)).flat()
@@ -47,3 +40,27 @@ function crearGeneros(genero) {
     return`<option value="${genero}">${genero}</option>`
 }
 crearOpciones(listaDeGeneros,checkboxContenedor)
+inputBusqueda.addEventListener("keyup", () =>{
+ const filtradoPorTitulo= filtrarPorTitulo(movies, inputBusqueda.value)
+ cardFiltrada(filtradoPorTitulo,contenedor,crearCard)
+})
+function filtrarPorTitulo(listMovie,title) {
+    const filtro= listMovie.filter( movie => movie.title.toLowerCase().startsWith(title.toLowerCase()))
+    return filtro
+}
+function cardFiltrada(lista, donde,fn) {
+    let template=""
+    for (const elementoIterado of lista) {
+        template += fn(elementoIterado)
+    }
+    if (template) {
+    donde.innerHTML=template
+    }
+    else{
+        donde.innerHTML=template=`<h2 class=" text-5xl font-semibold">there are no matches...</h2>`
+    }
+}
+checkboxContenedor.addEventListener("input",(e) =>{
+const options= [...document.querySelectorAll(`input[type="checkbox"]:checked`)]
+const values= checkboxes.map(check=>check.value)
+})
