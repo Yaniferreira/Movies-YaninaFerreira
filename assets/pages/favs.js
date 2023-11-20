@@ -1,4 +1,4 @@
-import{filtrarPorTitulo,filtrarporgenero,crearCard,cardFiltrada,createTemplate,crearOpciones} from '../module/funciones.js'
+import{filtrarPorTitulo,filtrarporgenero,crearCard,cardFiltrada,createTemplate,} from '../module/funciones.js'
 const contenedorFavs= document.getElementById("contenedorFavs")
 const opcionesApi={
     headers:{
@@ -14,13 +14,4 @@ const recuLocalStorage=JSON.parse(localStorage.getItem("like"))
 const favorite = movies.filter(movie => recuLocalStorage.some(favs=>favs.id===movie.id))
 console.log(favorite);
 contenedorFavs.innerHTML+= createTemplate(favorite)
-checkboxes.addEventListener('change', () => {
-    const filtradoporgenero = filtrarporgenero(movies,checkboxes.value)
-    const filtradoPorTitulo=filtrarPorTitulo( filtradoporgenero ,inputBusqueda.value)
-    cardFiltrada(filtradoPorTitulo, contenedor, crearCard)
-})
-inputBusqueda.addEventListener("keyup", () =>{
- const filtradoPorTitulo= filtrarPorTitulo(movies, inputBusqueda.value)
- cardFiltrada(filtradoPorTitulo,contenedor,crearCard)
-})
 })

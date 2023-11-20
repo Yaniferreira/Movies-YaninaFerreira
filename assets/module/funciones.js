@@ -10,7 +10,7 @@ export function createTemplate(listMovie) {
  if(comprobarArticle.some(item=> item.id===movie.id)){
     return `
     <article data-id="${movie.id}" class="articleFavs lg:flex-wrap w-[350px] h-[750px] flex flex-col justify-between items-center gap-3 bg-gray-600 rounded px-4 pb-2 pt-5">
-        <button class="buttonFavs" data-aggFavs="agregar" data-id="${movie.id}">
+        <button class="buttonFavs">
             <img data-id="${movie.id}" class="imageFavs w-[40px] h-[30px] flex items" src="../Recursos Moviestack/like-rojo.png" alt="">
         </button>
         <img class="rounded-md" src="https://moviestack.onrender.com/static/${movie.image}" alt="image">
@@ -22,7 +22,7 @@ export function createTemplate(listMovie) {
 } else {
 return `
     <article data-id="${movie.id}" class="articleFavs flex-wrap w-[350px] h-[750px] flex flex-col justify-between items-center gap-3 bg-gray-600 rounded px-4 pb-2 pt-5">
-        <button class="buttonFavs" data-aggFavs="agregar" data-id="${movie.id}">
+        <button class="buttonFavs">
             <img data-id="${movie.id}" class="imageFavs w-[40px] h-[30px] flex items" src="../Recursos Moviestack/like_vacio.png" alt="">
         </button>
         <img class="rounded-md" src="https://moviestack.onrender.com/static/${movie.image}" alt="image">
