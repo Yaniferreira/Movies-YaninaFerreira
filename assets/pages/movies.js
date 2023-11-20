@@ -18,12 +18,15 @@ let listaDeGeneros = new Set(generos)
 console.log(listaDeGeneros);
 crearOpciones(listaDeGeneros,checkboxContenedor)
 checkboxes.addEventListener('change', () => {
-    const filtradoporgenero = filtrarporgenero(movies,checkboxes.value)
-    const filtradoPorTitulo=filtrarPorTitulo( filtradoporgenero ,inputBusqueda.value)
+    const generoSeleccionado = checkboxes.value;
+    const filtradoporgenero = filtrarporgenero(movies,generoSeleccionado)
+    const filtradoPorTitulo=filtrarPorTitulo( filtradoporgenero,inputBusqueda.value)
     cardFiltrada(filtradoPorTitulo, contenedor, crearCard)
 })
 inputBusqueda.addEventListener("keyup", () =>{
- const filtradoPorTitulo= filtrarPorTitulo(movies, inputBusqueda.value)
+ const tituloIngresado = inputBusqueda.value;
+ const filtradoPorTitulo= filtrarPorTitulo(movies,tituloIngresado)
+ const filtradoporgenero= filtrarporgenero(filtradoPorTitulo,checkboxes.value)
  cardFiltrada(filtradoPorTitulo,contenedor,crearCard)
 })
  const buttonFavs= document.querySelectorAll(".buttonFavs")
@@ -58,20 +61,6 @@ buttonFavs.forEach((button, index) => {
 /*let num=[1,2,3,4,5,6,7,8,9,10]
 let resultado = num.map((pepe)=>pepe*2)
 console.log(num.map((pepe)=>pepe*2));
-SEGUNDA PARTE
-1-crear el html y el js para Favs
-2-agregar un boton de favs a cada card
-3-agregar un conjunto de datos con la informacion de cada pelicula al boton
-4-agregar un detector de ventos al elemento contenedor de todas las tarjetas 
-y desarrollar la logica para su funcionalidad
-5-guardar lista de favs en el almacenamiento local
-6-carga la lista de favs del almacenamiento local cuando se cargue la pag
-TERCERA PARTE
-1- enviar proyecto a la rama sprint-3 en github
-2-enviar sprint con el elance de mi repositorio
 EXTRAS
--mejorar los estilos y diseño de la pagina
 -hacerla responsive
--crear un boton para limpiar toda busueda o la opcion de all
-
 */

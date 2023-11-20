@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="../Recursos Moviestack/Moviestack_favicon.png" type="image/x-icon">
     <title>Movies</title>
 </head>
-<body class="bg-slate-300">
+<body class="bg-slate-300 max-w-full pt-0 pb-0 pl-0 pr-0">
     <header class="flex flex-row justify-between px-4">
         <div class=" flex flex-row w-35 h-20 object-contain">
             <img class="rounded" src="../Recursos Moviestack/Moviestack_isotipo.png" alt="isotipo">
@@ -20,18 +20,19 @@
         </nav>
     </header>
     <main>
-        <div id="Banner" class=" relative flex  " >
+        <div id="Banner" class=" relative flex   " >
             <img class="h-[350px] w-full  object-bottom object-cover" src="../Recursos Moviestack/Banner.jpg" alt="banner" id="bannerImg">
             <h1 class=" absolute  w-full h-8 text-center font-bold text-white text-8xl p-2 items-center top-0 right-0 left-0 bottom-0 m-auto" >MOVIES</h1>
-            </div>
-            <div  class="flex gap-10 items-center justify-center">
-            <div class=" flex p-5 gap-5" >
+            </div >
+            <div  class="flex gap-10 items-center justify-center flex-col lg:flex-row ">
+            <div class=" flex p-5 gap-5 sm:flex flex-col w-[150px]" >
                 <select name="" id="checkboxes"></select>
             </div>
-            <input type="text" placeholder="title" class="h-3/4" id="inputBusqueda">
+            <input  type="text" placeholder="title" class="h-3/4" id="inputBusqueda">
             </div>
             <a href="./detalles.html"></a>
         <div class="flex gap-8 pt-8 px-20 justify-center items-center flex-wrap" id="contenedor"> </div>
+        
     </main>
     <footer class="text-center font-semibold pt-5">
         <h2>MINDHUB - Cohort52 - Yanina Ferreira</h2>
