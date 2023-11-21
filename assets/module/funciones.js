@@ -35,7 +35,7 @@ return `
 
 } 
 export function crearOpciones(generos,contenedor) {
-    let opciones =""
+    let opciones ='<option value="">All</option>'
     for (const genero of generos) {
     opciones += crearGeneros (genero)
 contenedor.innerHTML= opciones
@@ -43,7 +43,6 @@ contenedor.innerHTML= opciones
 function crearGeneros(genero) {
     return`<option value="${genero}">${genero}</option>`
 }
-
 export function filtrarPorTitulo(listMovie,title) {
     const filtro= listMovie.filter( movie => movie.title.toLowerCase().startsWith(title.toLowerCase()))
     return filtro
@@ -64,6 +63,21 @@ export function filtrarporgenero(movies, genero) {
     const filtro = movies.filter(movie => movie.genres.indexOf(genero)!=-1)
      return filtro
 }
+export function filtroCruzado(input,select,movie,contenedor) {
+    const tituloIngresado = input.value;
+    const generoSeleccionado = select.value;
+    const resultadoPorGenero=generoSeleccionado !== "" ? filtrarporgenero(movie,generoSeleccionado):[...movie]
+    const resultadoPorTitulo=tituloIngresado !== "" ? filtrarPorTitulo(movie,tituloIngresado):[...movie]
+    const resultadoFinal= resultadoPorGenero.filter(movie=> resultadoPorTitulo.includes(movie))
+    contenedor.innerHTML=""
+    if (resultadoFinal.length>0) {
+        contenedor.innerHTML+= createTemplate(resultadoFinal)
+    }
+    else{
+        contenedor.innerHTML="there are no matches..."
+    }
+}
+
 export function creardatails (movie) {
     return `<div class="flex w-full flex-col justify-center pl-12 lg:flex lg:flex-row gap-3">
     <div class="flex items-center w-[200px] md:justify-center md:w-full flex-col lg:last:w-1/2 gap-4 ">

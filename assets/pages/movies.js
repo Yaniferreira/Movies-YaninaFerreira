@@ -1,4 +1,4 @@
-import{filtrarPorTitulo,filtrarporgenero,crearCard,cardFiltrada,createTemplate,crearOpciones} from '../module/funciones.js'
+import{filtrarPorTitulo,filtrarporgenero,crearCard,cardFiltrada,createTemplate,crearOpciones,filtroCruzado} from '../module/funciones.js'
 const contenedor= document.getElementById ("contenedor")
 const inputBusqueda= document.getElementById("inputBusqueda")
 const checkboxContenedor= document.getElementById("checkboxes")
@@ -18,16 +18,10 @@ let listaDeGeneros = new Set(generos)
 console.log(listaDeGeneros);
 crearOpciones(listaDeGeneros,checkboxContenedor)
 checkboxes.addEventListener('change', () => {
-    const generoSeleccionado = checkboxes.value;
-    const filtradoporgenero = filtrarporgenero(movies,generoSeleccionado)
-    const filtradoPorTitulo=filtrarPorTitulo( filtradoporgenero,inputBusqueda.value)
-    cardFiltrada(filtradoPorTitulo, contenedor, crearCard)
+   filtroCruzado(inputBusqueda,checkboxes,movies,contenedor)
 })
 inputBusqueda.addEventListener("keyup", () =>{
- const tituloIngresado = inputBusqueda.value;
- const filtradoPorTitulo= filtrarPorTitulo(movies,tituloIngresado)
- const filtradoporgenero= filtrarporgenero(filtradoPorTitulo,checkboxes.value)
- cardFiltrada(filtradoPorTitulo,contenedor,crearCard)
+    filtroCruzado(inputBusqueda,checkboxes,movies,contenedor)
 })
  const buttonFavs= document.querySelectorAll(".buttonFavs")
 const articleFavs=document.querySelectorAll(".articleFavs")
@@ -56,11 +50,7 @@ buttonFavs.forEach((button, index) => {
 });
 })
 
-
-
 /*let num=[1,2,3,4,5,6,7,8,9,10]
 let resultado = num.map((pepe)=>pepe*2)
 console.log(num.map((pepe)=>pepe*2));
-EXTRAS
--hacerla responsive
 */
